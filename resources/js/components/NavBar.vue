@@ -11,6 +11,7 @@
       <v-btn size="large" icon="mdi-truck" class="my-2"/>
       <v-btn size="large" icon="mdi-earth" class="my-2"/>
       <v-btn size="large" icon="mdi-package" class="my-2"/>
+      <v-btn size="large" icon="mdi-account" class="my-2"/>
     </v-menu>
     <v-menu v-else-if="client" activator="#menu-activator">
       <v-btn size="large" icon="mdi-truck" class="my-2"/>

@@ -20,6 +20,7 @@
                   </v-col>
                 </v-row>
                 <v-form @submit.prevent="login">
+                  
                   <v-text-field
                     v-model="emailLogin"
                     label="Email"
@@ -272,6 +273,14 @@ const getCsrfToken = () => {
 };
 
 const login = async () => {
+  if (!emailLogin.value || !passwordLogin.value) {
+    // Check if email and password are filled
+    loginSuccess.value = false;
+    loginError.value = true;
+    console.error("Email and password are required");
+    return;
+  }
+
   try {
     const csrfToken = getCsrfToken();
     const response = await axios.post("/login", {
@@ -284,7 +293,7 @@ const login = async () => {
     });
     loginSuccess.value = true;
     loginError.value = false;
-    router.push({ name: "Dashboard" });
+    router.push({ name: "CarrierDashboard" });
     console.log("Registration successful", response.data);
   } catch (error) {
     loginSuccess.value = false;

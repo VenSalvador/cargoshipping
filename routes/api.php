@@ -28,7 +28,7 @@ Route::get('/items', [ItemController::class, 'index']);
 
 // Protected routes
 Route::middleware('auth:api')->group(function () {
-    Route::get('/user', function (Request $request) {
+    Route::get('/users', function (Request $request) {
         return $request->user();
     });
 
